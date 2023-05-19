@@ -16,20 +16,18 @@ def hbnb():
     """displays 'HBNB'"""
     return "HBNB"
 
-@app.route("/c/<string:text>", strict_slashes=False)
+
+@app.route('/c/<string:text>', strict_slashes=False)
 def c_text(text):
-    """displays 'C' followed by the value of the text"""
-    text = text.replace('_', ' ')
-    return f'C {text}'
+    """ displays c + text """
+    return "C %s" % text.replace('_', ' ')
 
 
-@app.route("/python/", defaults={'text': 'is cool'}, strict_slashes=False)
-@app.route("/python/<string:text>", strict_slashes=False)
+@app.route("/python/", defaults={"text": "is cool"})
+@app.route('/python/<string:text>', strict_slashes=False)
 def python_text(text):
-    """displays 'Python' followed by the value of the text"""
-    text = text.replace('_', ' ')
-    return f'Python {text}'
-
+    """ displays Python + text """
+    return "Python %s" % text.replace('_', ' ')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
