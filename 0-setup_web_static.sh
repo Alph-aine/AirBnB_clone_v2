@@ -3,7 +3,7 @@
 
 # checks if nginx is already installed or installs it
 
-if ![  dpkg -l nginx &> /dev/null ]; then
+if ! dpkg -l nginx &> /dev/null; then
   sudo apt update
   sudo apt install nginx -y
 fi 
