@@ -7,6 +7,7 @@ from fabric.api import local
 
 
 @task
+''' packs into archive '''
 def do_pack():
     ''' directory to store archives'''
     local('mkdir -p ./versions')
