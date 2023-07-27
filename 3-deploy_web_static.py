@@ -57,6 +57,7 @@ def do_deploy(archive_path):
 
 
 def deploy():
+    """ executes do_pack and de_deploy()"""
     archive_path = do_pack()
     if archive_path is None:
         return False
