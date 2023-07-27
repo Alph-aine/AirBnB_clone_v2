@@ -19,4 +19,5 @@ def do_pack():
     if result.failed:
         return None
     else:
+        print(f'versions/{archive_name}')
         return f'versions/{archive_name}'
