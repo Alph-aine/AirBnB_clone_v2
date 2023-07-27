@@ -1,12 +1,11 @@
 #!/usr/bin/python3
-''' creates an archive of a directory stored with the unique timestamp '''
+""" creates an archive of a directory stored with the unique timestamp
+"""
 
-from fabric import task
 from datetime import datetime
-import os
+from fabric.api import local
 
 
-@task
 def do_pack():
     ''' directory to store archives'''
     local("mkdir -p ./versions")
@@ -15,7 +14,7 @@ def do_pack():
     archive_name = str("web_static_{}.tgz".format(time))
 
     # create archive
-    result = os.system(f"tar -cvzf ./versions/{archive_name} ./web_static")
+    result = local(f"tar -cvzf ./versions/{archive_name} ./web_static")
 
     if result.failed:
         return None
