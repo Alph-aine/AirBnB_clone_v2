@@ -36,6 +36,7 @@ def python_is_cool(text='is cool'):
 
 @app.route('/number/<int:n>', strict_slashes=False)
 def n_is_int(n):
+    """ display n onli if it is an integer"""
     return f'{n} is a number'
 
 
