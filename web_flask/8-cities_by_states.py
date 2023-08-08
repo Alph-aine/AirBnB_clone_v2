@@ -3,14 +3,15 @@
 
 from flask import Flask, render_template
 from models import storage
+from models import *
 app = Flask(__name__)
 
 
-@app.route('/states_list', strict_slashes=False)
-def state_list():
-    '''gets the list of states from database in alphabetical order'''
-    states = sorted(list(storage.all("State").values()), key=lambda x: x.name)
-    return render_template('7-states_list.html', states=states)
+@app.route('/cities_by_states', strict_slashes=False)
+def city_list():
+    '''displays states and cities in alphabrtical order'''
+    states = storage.all("State").values()
+    return render_template('8-cities_by_states.html', states=states)
 
 
 @app.teardown_appcontext
